@@ -7,7 +7,7 @@ data = pd.read_csv("data.csv")
 anxiety_labels = data.get("AnxietyDisorder").values
 ADHD_labels = data.get("ADHD").values
 
-x_labels = data.get(data.keys()[4].values)
+x_labels = data.get(data.keys()[4]).values
 x_labels = np.column_stack((x_labels,data.get(data.keys()[7]).values))
 x_labels = np.column_stack((x_labels,data.get(data.keys()[8]).values))
 
