@@ -13,9 +13,10 @@ x_labels = np.column_stack((x_labels,data.get(data.keys()[8]).fillna(data.get(da
 
 for i in range(331,587):
   x_labels = np.column_stack((x_labels,data.get(data.keys()[i]).fillna(data.get(data.keys()[i]).mean())))
-
+    
 for i in range(589,706):
-  x_labels = np.column_stack((x_labels,data.get(data.keys()[i]).fillna(data.get(data.keys()[i]).mean())))
+  if i!643:
+    x_labels = np.column_stack((x_labels,data.get(data.keys()[i]).fillna(data.get(data.keys()[i]).mean())))
 
 model = Sequential()
 model.add(Dense(30, input_dim=376, activation='relu'))
