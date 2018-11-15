@@ -3,8 +3,6 @@ from keras.layers import Dense
 import pandas as pd
 import numpy as np
 
-df.fillna(df.mean())
-
 data = pd.read_csv("data.csv")
 anxiety_labels = data.get("AnxietyDisorder").values
 ADHD_labels = data.get("ADHD").values
