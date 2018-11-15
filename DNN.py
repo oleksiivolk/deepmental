@@ -19,7 +19,7 @@ for i in range(589,706):
     x_labels = np.column_stack((x_labels,data.get(data.keys()[i]).fillna(data.get(data.keys()[i]).mean())))
 
 model = Sequential()
-model.add(Dense(30, input_dim=376, activation='relu'))
+model.add(Dense(30, input_dim=375, activation='relu'))
 model.add(Dense(30, activation='relu'))
 model.add(Dense(5, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
