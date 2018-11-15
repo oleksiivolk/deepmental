@@ -21,6 +21,8 @@ for i in range(589,706):
 model = Sequential()
 model.add(Dense(30, input_dim=375, activation='relu'))
 model.add(Dense(30, activation='relu'))
+model.add(Dense(30, activation='relu'))
+model.add(Dense(30, activation='relu'))
 model.add(Dense(5, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
 
