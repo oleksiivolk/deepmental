@@ -27,7 +27,7 @@ model.add(Dense(30, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
 
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-model.fit(x_labels, anxiety_labels, epochs=150, batch_size=1000)
+model.fit(x_labels, anxiety_labels, epochs=150, batch_size=20)
 
 scores = model.evaluate(x_labels, anxiety_labels)
 print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
