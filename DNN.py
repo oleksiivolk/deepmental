@@ -29,8 +29,8 @@ model.add(Dense(30, input_dim=375, activation='relu',
                 kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)))
 model.add(Dense(30, activation='relu',
                kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)))
-model.add(Dense(30, activation='relu',
-               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)))
+#model.add(Dense(30, activation='relu',
+#               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)))
 #model.add(Dense(30, activation='relu',
 #              kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)))
 #model.add(Dense(30, activation='relu',
