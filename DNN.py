@@ -1,5 +1,6 @@
 from keras.models import Sequential
 from keras.layers import Dense
+from keras.layers.normalization import BatchNormalization
 import pandas as pd
 import numpy as np
 
@@ -19,6 +20,7 @@ for i in range(589,706):
     x_labels = np.column_stack((x_labels,data.get(data.keys()[i]).fillna(data.get(data.keys()[i]).mean())))
 
 model = Sequential()
+model.add(BatchNormalization())
 model.add(Dense(30, input_dim=375, activation='relu'))
 model.add(Dense(30, activation='relu'))
 model.add(Dense(30, activation='relu'))
@@ -26,7 +28,10 @@ model.add(Dense(30, activation='relu'))
 model.add(Dense(30, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
 
-model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+nadam = keras.optimizers.Nadam(lr=0.002, beta_1=0.9, beta_2=0.999, epsilon=None, schedule_decay=0.004)
+model.compile(loss='binary_crossentropy', optimizer=nadam, metrics=['accuracy'])
+
 model.fit(x_labels, anxiety_labels, epochs=150, batch_size=20)
 
 scores = model.evaluate(x_labels, anxiety_labels)
