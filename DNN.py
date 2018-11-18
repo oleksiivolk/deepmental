@@ -41,7 +41,7 @@ model.add(Dense(1, activation='sigmoid'))
 nadam = Nadam(lr=0.002, beta_1=0.9, beta_2=0.999, epsilon=None, schedule_decay=0.004)
 model.compile(loss='binary_crossentropy', optimizer=nadam, metrics=['accuracy'])
 
-model.fit(x_labels, anxiety_labels, epochs=150, batch_size=64)
+model.fit(x_labels, anxiety_labels, epochs=1500, batch_size=64)
 
 scores = model.evaluate(x_labels, anxiety_labels)
 print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
