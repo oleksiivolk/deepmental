@@ -41,13 +41,25 @@ model.add(Dense(1, activation='sigmoid'))
 nadam = Nadam(lr=0.002, beta_1=0.9, beta_2=0.999, epsilon=None, schedule_decay=0.004)
 model.compile(loss='binary_crossentropy', optimizer=nadam, metrics=['accuracy'])
 
-history_callback =  model.fit(x_labels, anxiety_labels, epochs=1500, batch_size=64)
+history_callback =  model.fit(x_labels, anxiety_labels, epochs=20, batch_size=64)
 
 scores = model.evaluate(x_labels, anxiety_labels)
 print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 
 loss_history = history_callback.history["loss"]
-numpy_loss_history = np.array(loss_history)
-numpy.savetxt("loss_history.txt", numpy_loss_history, delimiter=",")
+np_loss_history = np.array(loss_history)
+np.savetxt("loss_history.txt", numpy_loss_history, delimiter=",")
+
+acc_history = history_callback.history["acc"]
+np_acc_history = np.array(acc_history)
+np.savetxt("acc_history.txt", numpy_acc_history, delimiter=",")
+
+valloss_history = history_callback.history["val_loss"]
+np_valloss_history = np.array(valloss_history)
+np.savetxt("valloss_history.txt", np_valloss_history, delimiter=",")
+
+valacc_history = history_callback.history["val_acc"]
+np_valacc_history = np.array(valacc_history)
+np.savetxt("valacc_history.txt", np_valacc_history, delimiter=",")
 
 model.save("model") 
