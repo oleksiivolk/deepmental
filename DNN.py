@@ -41,9 +41,13 @@ model.add(Dense(1, activation='sigmoid'))
 nadam = Nadam(lr=0.002, beta_1=0.9, beta_2=0.999, epsilon=None, schedule_decay=0.004)
 model.compile(loss='binary_crossentropy', optimizer=nadam, metrics=['accuracy'])
 
-model.fit(x_labels, anxiety_labels, epochs=1500, batch_size=64)
+history_callback =  model.fit(x_labels, anxiety_labels, epochs=1500, batch_size=64)
 
 scores = model.evaluate(x_labels, anxiety_labels)
 print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 
-model.save("model")
+loss_history = history_callback.history["loss"]
+numpy_loss_history = np.array(loss_history)
+numpy.savetxt("loss_history.txt", numpy_loss_history, delimiter=",")
+
+model.save("model") 
