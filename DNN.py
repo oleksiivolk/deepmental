@@ -48,11 +48,11 @@ print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 
 loss_history = history_callback.history["loss"]
 np_loss_history = np.array(loss_history)
-np.savetxt("loss_history.txt", numpy_loss_history, delimiter=",")
+np.savetxt("loss_history.txt", np_loss_history, delimiter=",")
 
 acc_history = history_callback.history["acc"]
 np_acc_history = np.array(acc_history)
-np.savetxt("acc_history.txt", numpy_acc_history, delimiter=",")
+np.savetxt("acc_history.txt", np_acc_history, delimiter=",")
 
 valloss_history = history_callback.history["val_loss"]
 np_valloss_history = np.array(valloss_history)
