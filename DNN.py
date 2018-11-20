@@ -27,16 +27,16 @@ for i in range(589,706):
 model = Sequential()
 model.add(BatchNormalization())
 model.add(Dense(45, input_dim=375, activation='relu',
-               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)
+               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None),
                kernel_regularizer=regularizers.l2(0.01)))
 model.add(Dense(30, activation='relu',
-               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)
+               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None),
                kernel_regularizer=regularizers.l2(0.01)))
 model.add(Dense(20, activation='relu',
-               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)
+               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None),
                kernel_regularizer=regularizers.l2(0.01)))
 model.add(Dense(10, activation='relu',
-              kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)
+              kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None),
                kernel_regularizer=regularizers.l2(0.01)))
 #model.add(Dense(30, activation='relu',
 #               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)))
