@@ -3,6 +3,7 @@ from keras.layers import Dense
 from keras.layers.normalization import BatchNormalization
 from keras.initializers import TruncatedNormal
 from keras.optimizers import Nadam
+from keras.regularizers import l2
 import pandas as pd
 import numpy as np
 
@@ -26,13 +27,17 @@ for i in range(589,706):
 model = Sequential()
 model.add(BatchNormalization())
 model.add(Dense(45, input_dim=375, activation='relu',
-                kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)))
+               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)
+               kernel_regularizer=regularizers.l2(0.01)))
 model.add(Dense(30, activation='relu',
-               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)))
+               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)
+               kernel_regularizer=regularizers.l2(0.01)))
 model.add(Dense(20, activation='relu',
-               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)))
+               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)
+               kernel_regularizer=regularizers.l2(0.01)))
 model.add(Dense(10, activation='relu',
-              kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)))
+              kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)
+               kernel_regularizer=regularizers.l2(0.01)))
 #model.add(Dense(30, activation='relu',
 #               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None)))
 model.add(Dense(1, activation='sigmoid'))
