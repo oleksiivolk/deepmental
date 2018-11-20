@@ -3,13 +3,14 @@ from keras.layers import Dense
 from keras.layers.normalization import BatchNormalization
 from keras.initializers import TruncatedNormal
 from keras.optimizers import Nadam
+from keras.utils import to_categorical
 import pandas as pd
 import numpy as np
 
 data = pd.read_csv("data.csv")
 anxiety_labels = data.get("AnxietyDisorder").values
 ADHD_labels = data.get("ADHD").values
-y_labels = anxiety_labels*2 + ADHD_labels
+y_labels = to_categorical(anxiety_labels*2 + ADHD_labels)
 
 x_labels = (data.get(data.keys()[4])).fillna((data.get(data.keys()[4])).mean())
 x_labels = np.column_stack((x_labels,data.get(data.keys()[7]).fillna(data.get(data.keys()[7]).mean())))
