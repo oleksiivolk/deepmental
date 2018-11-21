@@ -38,9 +38,9 @@ model.add(Dense(30, activation='relu',
 model.add(Dense(30, activation='relu',
               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None),
                kernel_regularizer=l2(0.001)))
-model.add(Dense(30, activation='relu',
-              kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None),
-               kernel_regularizer=l2(0.001)))
+#model.add(Dense(30, activation='relu',
+#              kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None),
+#               kernel_regularizer=l2(0.001)))
 model.add(Dense(1, activation='sigmoid'))
 
 
