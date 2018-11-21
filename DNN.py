@@ -44,7 +44,7 @@ model.add(Dense(30, activation='relu',
 model.add(Dense(1, activation='sigmoid'))
 
 
-nadam = Nadam(lr=0.02, beta_1=0.9, beta_2=0.999, epsilon=None, schedule_decay=0.004)
+nadam = Nadam(lr=1, beta_1=0.9, beta_2=0.999, epsilon=None, schedule_decay=0.004)
 model.compile(loss='binary_crossentropy', optimizer=nadam, metrics=['accuracy'])
 
 history_callback =  model.fit(x_labels, anxiety_labels, epochs=5000, batch_size=64, validation_split = 0.01, verbose = 2)
