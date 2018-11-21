@@ -28,26 +28,26 @@ model = Sequential()
 model.add(BatchNormalization())
 model.add(Dense(100, input_dim=375, activation='relu',
                kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None),
-               kernel_regularizer=l2(0)))
+               kernel_regularizer=l2(0.0001)))
 model.add(Dense(30, activation='relu',
                kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None),
-               kernel_regularizer=l2(0)))
+               kernel_regularizer=l2(0.0001)))
 model.add(Dense(30, activation='relu',
                kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None),
-               kernel_regularizer=l2(0)))
+               kernel_regularizer=l2(0.0001)))
 model.add(Dense(30, activation='relu',
               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None),
-               kernel_regularizer=l2(0)))
+               kernel_regularizer=l2(0.0001)))
 model.add(Dense(30, activation='relu',
               kernel_initializer=TruncatedNormal(mean=0.0, stddev=0.05, seed=None),
-               kernel_regularizer=l2(0)))
+               kernel_regularizer=l2(0.0001)))
 model.add(Dense(1, activation='sigmoid'))
 
 
 nadam = Nadam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, schedule_decay=0.004)
 model.compile(loss='binary_crossentropy', optimizer=nadam, metrics=['accuracy'])
 
-history_callback =  model.fit(x_labels, anxiety_labels, epochs=5000, batch_size=64, validation_split = 0.01, verbose = 2)
+history_callback =  model.fit(x_labels, anxiety_labels, epochs=5000, batch_size=64, validation_split = 0.1, verbose = 2)
 
 scores = model.evaluate(x_labels, anxiety_labels)
 print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
