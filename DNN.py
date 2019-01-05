@@ -9,7 +9,7 @@ import numpy as np
 
 data = pd.read_csv("data.csv")
 anxiety_labels = data.get("AnxietyDisorder").values
-anxiety_labels.size()
+print(anxiety_labels.size())
 ADHD_labels = data.get("ADHD").values
 
 x_labels = (data.get(data.keys()[4])).fillna((data.get(data.keys()[4])).mean())
